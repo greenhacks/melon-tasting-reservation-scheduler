@@ -23,15 +23,25 @@
     {% block head %}{% endblock %}
   </head>
 
+  <div>
+    <h1> Welcome to the Melon Tasting Reservation Scheduler</h1>
+  </div>
+
+  <div>
+    <h3>Log in with your email below.</h3>
+  </div>
+  
+  <div>
   <form action="/login" method="POST">
     <div class="mb-2">
       <label for="exampleInputFName1" class="form-label">Email</label>
       <input type="email" class="form-control" id="exampleInputFName1" aria-describedby="fnameHelp"
-      placeholder="test@test.xyz" required name="email">
+      placeholder="test@test.xyz" required name="loginemail">
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
-
+  
+</div>
     {% for msg in get_flashed_messages() %}
       <div class="alert alert-primary alert-dismissible show" role="alert">
         <p class="flash-msg mb-0">

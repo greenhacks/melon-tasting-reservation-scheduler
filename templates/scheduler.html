@@ -21,20 +21,6 @@
     </title>
     {% block head %}{% endblock %}
   </head>
-    <!-- Nav bar -->
-    <!-- <nav class="navbar navbar-dark">
-      <div class="d-flex" id="nav-bar">
-          <a class="navbar-brand mr-auto mt-0 ms-3" id="brand" href="/dashboard">Heat Resilience App</a> 
-          <a class="nav-link active" aria-current="page" href="/dashboard">Dashboard</a>
-          <a class="nav-link active" aria-current="page" href="/resilience-resources">Resilience Resources</a>
-      </div>
-    
-      <div class="d-flex" id="nav-bar">
-          <a class="nav-link active" aria-current="page" href="/about">About</a>
-          <a class="nav-link active" aria-current="page" href="/user-settings">Settings</a>
-          <a class="nav-link ms-auto active" aria-current="page" href="/logout">Log out</a>
-      </div>
-    </nav> -->
 
     {% for msg in get_flashed_messages() %}
       <div class="alert alert-primary alert-dismissible show" role="alert">
@@ -48,7 +34,7 @@
 
     <body>
     {% block body %} {% endblock %}
-
+    <a href="/logout" class="btn btn-secondary btn-md active" role="button" aria-pressed="true">Log out</a>
     {% block after_body %}{% endblock %}
 
     <!-- Calendly inline widget begin -->
@@ -64,6 +50,5 @@
       >
       </script>
       <script src="/static/calendly.js"></script>
-
   </body>
 </html>

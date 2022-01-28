@@ -1,7 +1,10 @@
 import os
+
 from flask import (Flask, render_template, request, flash, session,
                    redirect, json, jsonify)
 from jinja2 import StrictUndefined 
+from model import connect_to_db
+import crud
 
 secretkey = os.environ['SECRET_KEY']
 
@@ -26,7 +29,6 @@ def handle_login():
     """Log user into application."""
     email = request.form.get('loginemail') 
 
-
     # get user by email
     user = crud.get_user_by_email(email)
 
@@ -43,8 +45,17 @@ def handle_login():
         flash('Wrong password!')
         return redirect('/')
 
+@app.route('/logout')
+def logout():
+    """Log a user out"""
 
+    del session['user_email']
+    
+    # flash("You have logged out.")
+    
+    return redirect("/")
+    
 if __name__ == "__main__":
     # DebugToolbarExtension(app)
-    # connect_to_db(app, 'heat-resilience-app')
+    connect_to_db(app, 'melon-tasting-scheduler-db')
     app.run(host="0.0.0.0", debug=True) #debug=True was removed for prod

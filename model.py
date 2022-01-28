@@ -1,4 +1,4 @@
-"""Models for heat resilience app."""
+"""Models for melon tasting reservation scheduler."""
 
 from flask_sqlalchemy import SQLAlchemy
 
@@ -46,9 +46,7 @@ class Appointment(db.Model):
     def __repr__(self):
         return f'<Appointment: appointment_id={self.appointment_id}, user_id={self.user_id}>'
 
-
-
 if __name__ == "__main__":
     from server import app
     app.app_context()
-    connect_to_db(app, "heat-resilience-app")
+    connect_to_db(app, "melon-tasting-scheduler-db")
